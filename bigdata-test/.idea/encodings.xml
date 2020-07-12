@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jvm-test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jvm-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kafka-test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kafka-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pf4j-test/README.md" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pf4j-test/plugin-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pf4j-test/plugin-app/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pf4j-test/plugins/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spark-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zookeeper-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zookeeper-test/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7646ecf9-769f-4c69-815d-798e41255642" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Doc\maven\repository" />
+        <option name="mavenHome" value="E:/Program Files (x86)/apache-maven-3.6.0-bin" />
+        <option name="userSettingsFile" value="E:\Program Files (x86)\apache-maven-3.6.0-bin\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1aLxGP9fsbs3NXyj6zDfEW0gPSI" />
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/pf4j-test/plugin-api/src/main/java/com/lzj" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.20512821" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lzj" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Doc\Workspaces\bigdata-test\zookeeper-test\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Spark05_RDDInMultiFilePartition">
+    <configuration name="DistributeClient" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lzj.DistributeClient" />
+      <module name="zookeeper-test" />
+      <option name="PROGRAM_PARAMETERS" value="slave1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lzj.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RDDInFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lzj.spark.core.rdd.RDDInFile" />
+      <module name="spark-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lzj.spark.core.rdd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RDDInMemory" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lzj.spark.core.rdd.RDDInMemory" />
+      <module name="spark-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lzj.spark.core.rdd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RDDInPartition" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lzj.spark.core.rdd.RDDInPartition" />
+      <module name="spark-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lzj.spark.core.rdd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Spark04_RDDInFIlePartition" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lzj.spark.core.rdd.Spark04_RDDInFIlePartition" />
+      <module name="spark-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lzj.spark.core.rdd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Spark05_RDDInMultiFilePartition" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lzj.spark.core.rdd.Spark05_RDDInMultiFilePartition" />
+      <module name="spark-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lzj.spark.core.rdd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.DistributeClient" />
+      <item itemvalue="Application.RDDInFile" />
+      <item itemvalue="Application.RDDInMemory" />
+      <item itemvalue="Application.RDDInPartition" />
+      <item itemvalue="Application.Spark04_RDDInFIlePartition" />
+      <item itemvalue="Application.Spark05_RDDInMultiFilePartition" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Spark05_RDDInMultiFilePartition" />
+        <item itemvalue="Application.Spark04_RDDInFIlePartition" />
+        <item itemvalue="Application.RDDInPartition" />
+        <item itemvalue="Application.RDDInFile" />
+        <item itemvalue="Application.RDDInMemory" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7646ecf9-769f-4c69-815d-798e41255642" name="Default Changelist" comment="" />
+      <created>1578062090999</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578062090999</updated>
+      <workItem from="1578062096552" duration="4136000" />
+      <workItem from="1578192118010" duration="6665000" />
+      <workItem from="1586528584000" duration="2523000" />
+      <workItem from="1586570865411" duration="23221000" />
+      <workItem from="1586944893718" duration="7610000" />
+      <workItem from="1588038658333" duration="6186000" />
+      <workItem from="1593249188018" duration="3475000" />
+      <workItem from="1593829282586" duration="1539000" />
+      <workItem from="1593917569349" duration="18033000" />
+      <workItem from="1593961645376" duration="9175000" />
+      <workItem from="1594308161693" duration="892000" />
+      <workItem from="1594436921146" duration="2870000" />
+      <workItem from="1594439895931" duration="32000" />
+      <workItem from="1594440129935" duration="18632000" />
+      <workItem from="1594544285984" duration="8800000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="413" y="48" key="#DistributeClient" timestamp="1588043934603">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="413" y="48" key="#DistributeClient/0.0.1474.864@0.0.1474.864" timestamp="1588043934603" />
+    <state x="620" y="294" key="#Notifications" timestamp="1594436951775">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="620" y="294" key="#Notifications/0.0.1474.864@0.0.1474.864" timestamp="1594436951775" />
+    <state x="218" y="7" key="#Project_Structure" timestamp="1587006724156">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="218" y="7" key="#Project_Structure/0.0.1474.864@0.0.1474.864" timestamp="1587006724156" />
+    <state x="192" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588043992457">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="192" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1474.864@0.0.1474.864" timestamp="1588043992457" />
+    <state x="470" y="233" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594553314024">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="470" y="233" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1474.864@0.0.1474.864" timestamp="1594553314024" />
+    <state x="543" y="138" key="#com.intellij.ide.util.MemberChooser" timestamp="1594458893630">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="543" y="138" key="#com.intellij.ide.util.MemberChooser/0.0.1474.864@0.0.1474.864" timestamp="1594458893630" />
+    <state x="568" y="143" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1587005639337">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="568" y="143" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1474.864@0.0.1474.864" timestamp="1587005639337" />
+    <state x="418" y="167" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1594436797838">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="418" y="167" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1474.864@0.0.1474.864" timestamp="1594436797838" />
+    <state x="513" y="81" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588039605274">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="513" y="81" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1474.864@0.0.1474.864" timestamp="1588039605274" />
+    <state x="468" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587006366773">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="468" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1474.864@0.0.1474.864" timestamp="1587006366773" />
+    <state x="468" y="179" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1594448432084">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="468" y="179" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1474.864@0.0.1474.864" timestamp="1594448432084" />
+    <state x="468" y="187" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1587006420580">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="468" y="187" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1474.864@0.0.1474.864" timestamp="1587006420580" />
+    <state x="493" y="134" key="#xdebugger.evaluate" timestamp="1586946336702">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="493" y="134" key="#xdebugger.evaluate/0.0.1474.864@0.0.1474.864" timestamp="1586946336702" />
+    <state width="728" height="510" key="DebuggerActiveHint" timestamp="1586946989931">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="728" height="510" key="DebuggerActiveHint/0.0.1474.864@0.0.1474.864" timestamp="1586946989931" />
+    <state x="592" y="136" key="FileChooserDialogImpl" timestamp="1593614115999">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="592" y="136" key="FileChooserDialogImpl/0.0.1474.864@0.0.1474.864" timestamp="1593614115999" />
+    <state width="1431" height="132" key="GridCell.Tab.0.bottom" timestamp="1594553261128">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="132" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1594553261128" />
+    <state width="1431" height="132" key="GridCell.Tab.0.center" timestamp="1594553261128">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="132" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1594553261128" />
+    <state width="1431" height="132" key="GridCell.Tab.0.left" timestamp="1594553261128">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="132" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1594553261128" />
+    <state width="1431" height="132" key="GridCell.Tab.0.right" timestamp="1594553261128">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="132" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1594553261128" />
+    <state width="1431" height="183" key="GridCell.Tab.1.bottom" timestamp="1586947406065">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="183" key="GridCell.Tab.1.bottom/0.0.1474.864@0.0.1474.864" timestamp="1586947406065" />
+    <state width="1431" height="183" key="GridCell.Tab.1.center" timestamp="1586947406064">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="183" key="GridCell.Tab.1.center/0.0.1474.864@0.0.1474.864" timestamp="1586947406064" />
+    <state width="1431" height="183" key="GridCell.Tab.1.left" timestamp="1586947406064">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="183" key="GridCell.Tab.1.left/0.0.1474.864@0.0.1474.864" timestamp="1586947406064" />
+    <state width="1431" height="183" key="GridCell.Tab.1.right" timestamp="1586947406064">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="183" key="GridCell.Tab.1.right/0.0.1474.864@0.0.1474.864" timestamp="1586947406064" />
+    <state x="268" y="87" key="Maven.ArtifactSearchDialog" timestamp="1586574297002">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="268" y="87" key="Maven.ArtifactSearchDialog/0.0.1474.864@0.0.1474.864" timestamp="1586574297002" />
+    <state x="518" y="237" key="RestClientTextRequest" timestamp="1586577959997">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="518" y="237" key="RestClientTextRequest/0.0.1474.864@0.0.1474.864" timestamp="1586577959997" />
+    <state x="290" y="73" key="SettingsEditor" timestamp="1594544259455">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="290" y="73" key="SettingsEditor/0.0.1474.864@0.0.1474.864" timestamp="1594544259455" />
+    <state x="534" y="210" key="chooseDestDirectoryDialog" timestamp="1586948770563">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="534" y="210" key="chooseDestDirectoryDialog/0.0.1474.864@0.0.1474.864" timestamp="1586948770563" />
+    <state x="481" y="88" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594453243584">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="481" y="88" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1474.864@0.0.1474.864" timestamp="1594453243584" />
+    <state x="437" y="135" width="600" height="594" key="find.popup" timestamp="1594458192985">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="437" y="135" width="600" height="594" key="find.popup/0.0.1474.864@0.0.1474.864" timestamp="1594458192985" />
+    <state width="815" height="579" key="javadoc.popup" timestamp="1593830899035">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="572" height="188" key="javadoc.popup.new" timestamp="1594460461933">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state width="572" height="188" key="javadoc.popup.new/0.0.1474.864@0.0.1474.864" timestamp="1594460461933" />
+    <state width="815" height="579" key="javadoc.popup/0.0.1474.864@0.0.1474.864" timestamp="1593830899035" />
+    <state x="221" y="42" key="new project wizard" timestamp="1594437210411">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="221" y="42" key="new project wizard/0.0.1474.864@0.0.1474.864" timestamp="1594437210411" />
+    <state x="438" y="130" width="672" height="678" key="search.everywhere.popup" timestamp="1594549713261">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="438" y="130" width="672" height="678" key="search.everywhere.popup/0.0.1474.864@0.0.1474.864" timestamp="1594549713261" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program File My/Java/jdk1.8.0_171/src.zip!/java/sql/DriverManager.java</url>
+          <line>639</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/jvm-test/src/main/java/com/lzj/classloader/Test.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program File My/Java/jdk1.8.0_171/src.zip!/java/sql/DriverManager.java</url>
+          <line>246</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program File My/Java/jdk1.8.0_171/src.zip!/java/sql/DriverManager.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program File My/Java/jdk1.8.0_171/src.zip!/java/sql/DriverManager.java</url>
+          <line>585</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program File My/Java/jdk1.8.0_171/src.zip!/java/sql/DriverManager.java</url>
+          <line>602</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/pf4j-test/plugin-app/src/main/java/com/lzj/GreetingTest.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>jar://C:/Program File My/Java/jdk1.8.0_171/src.zip!/java/sql/DriverManager.java</url>
+          <line>84</line>
+          <properties field="registeredDrivers" class="java.sql.DriverManager" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="$PROJECT_DIR$" />
+    <option value="dependency:resolve -Dclassifier=sources" />
+  </component>
+</project>
