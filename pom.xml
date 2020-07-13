@@ -12,6 +12,8 @@
         <module>pf4j-test</module>
         <module>zookeeper-test</module>
         <module>spark-test</module>
+        <module>kafka-test</module>
+        <module>jvm-test</module>
     </modules>
 
     <name>bigdata-test</name>
