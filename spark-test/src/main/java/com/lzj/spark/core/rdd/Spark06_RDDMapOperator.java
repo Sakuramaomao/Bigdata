@@ -38,7 +38,7 @@ public class Spark06_RDDMapOperator {
          */
         SparkConf sparkConf = new SparkConf();
         sparkConf.setMaster("local");
-        sparkConf.setAppName("operator-rdd");
+        sparkConf.setAppName("map-rdd");
 
         /*
           使用配置对象创建上下文环境。
