@@ -1,4 +1,4 @@
-package com.lzj.spark.core.rdd;
+package com.lzj.spark.core.rdd.operator;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
