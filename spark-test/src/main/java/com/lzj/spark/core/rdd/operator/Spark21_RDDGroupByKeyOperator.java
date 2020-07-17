@@ -14,6 +14,8 @@ import java.util.Arrays;
  *    根据指定的key进行分组，相同key对应的是个迭代器集合。
  *    和groupBy的区别在于groupBy可以自定义分组规则，而groupByKey只能依据key来分组。
  *
+ *    其实groupByKey拿到可迭代器，是可以再进一步做聚合操作的。这也是reduceByKey比它多的一个小功能。
+ *
  * </pre>
  *
  * @Author zj.li
