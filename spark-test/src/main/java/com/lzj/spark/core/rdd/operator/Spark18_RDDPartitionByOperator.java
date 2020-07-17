@@ -1,5 +1,6 @@
 package com.lzj.spark.core.rdd.operator;
 
+import org.apache.spark.HashPartitioner;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -13,6 +14,11 @@ import java.util.Arrays;
  *
  *     注意：partitionBy算子不是RDD接口中的方法，而是PairRDD接口中的方法。
  *     所以有些时候ide不提示方法，是因为不是当前对象中所拥有的方法。
+ *
+ *     分区器：
+ *      （1）HashPartitioner   根据key的hash值分区。（这里没有用跟map一样的位运算，因为分区数是手动填写的，不能保证是2的n次幂。）
+ *      （2）RangePartitioner  直接划分范围进行分区。比如0-100到零号分区，101-200到一号分区。
+ *     默认分区器是HashPartitioner。RangePartitioner要求key必须是可以排序的，这个在sortBy算子中被默认使用了，平时不会去使用。
  *
  * </pre>
  *
@@ -42,9 +48,9 @@ public class Spark18_RDDPartitionByOperator {
                 )
         );
 
-        //
-        JavaPairRDD<String, Integer> rddPartitionByKey = rdd.partitionBy(null);
+        // 内置分区器有Hash和Range两种，实现和Kafka中的分区机制类似。
+        JavaPairRDD<String, Integer> rddPartitionByKey = rdd.partitionBy(new HashPartitioner(2));
 
-        System.out.println(rddPartitionByKey.collect());
+        rddPartitionByKey.saveAsTextFile("output");
     }
 }
