@@ -1,4 +1,4 @@
-package com.lzj.spark.core.rdd.operator;
+package com.lzj.spark.core.rdd.operator.transfer;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
@@ -20,7 +20,7 @@ import java.util.Arrays;
  * @Author zj.li
  * @Date 2020/7/16 20:19
  **/
-public class Spark16_RDDSortOperator {
+public class Spark16_RDDSortByOperator {
     public static void main(String[] args) {
         /*
           创建配置对象。

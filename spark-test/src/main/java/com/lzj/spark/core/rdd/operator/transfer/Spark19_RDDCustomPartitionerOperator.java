@@ -1,6 +1,5 @@
-package com.lzj.spark.core.rdd.operator;
+package com.lzj.spark.core.rdd.operator.transfer;
 
-import org.apache.hadoop.mapred.JobConf;
 import org.apache.spark.Partitioner;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -8,7 +7,6 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function2;
 import scala.Tuple2;
-import scala.runtime.ScalaWholeNumberProxy;
 
 import java.util.ArrayList;
 import java.util.Arrays;

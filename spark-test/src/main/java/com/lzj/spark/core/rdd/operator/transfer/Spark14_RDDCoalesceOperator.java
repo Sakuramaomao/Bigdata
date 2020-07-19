@@ -1,4 +1,4 @@
-package com.lzj.spark.core.rdd.operator;
+package com.lzj.spark.core.rdd.operator.transfer;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
@@ -28,7 +28,7 @@ public class Spark14_RDDCoalesceOperator {
          */
         SparkConf sparkConf = new SparkConf();
         sparkConf.setMaster("local");
-        sparkConf.setAppName("coalesce-rdd");
+        sparkConf.setAppName("join-rdd");
 
         /*
           使用配置对象创建上下文环境。
@@ -39,10 +39,10 @@ public class Spark14_RDDCoalesceOperator {
         JavaRDD<Integer> rdd = sc.parallelize(Arrays.asList(1, 1, 1, 2, 2, 2), 2);
 
         // 筛选保留偶数数据。会有一个分区是空的。
-        JavaRDD<Integer> filterRdd = rdd.filter(i -> i % 2 == 0);
+        //JavaRDD<Integer> filterRdd = rdd.filter(i -> i % 2 == 0);
 
         // 将分区缩减为1个。
-        JavaRDD<Integer> coalesceRdd = filterRdd.coalesce(1);
+        JavaRDD<Integer> coalesceRdd = rdd.coalesce(1);
 
         coalesceRdd.saveAsTextFile("output");
     }

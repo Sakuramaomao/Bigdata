@@ -1,4 +1,4 @@
-package com.lzj.spark.core.rdd.operator;
+package com.lzj.spark.core.rdd.operator.transfer;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -15,6 +15,15 @@ import java.util.Arrays;
  *    和groupBy的区别在于groupBy可以自定义分组规则，而groupByKey只能依据key来分组。
  *
  *    其实groupByKey拿到可迭代器，是可以再进一步做聚合操作的。这也是reduceByKey比它多的一个小功能。
+ *
+ *    关于groupByKey原理的细节：
+ *      我们知道groupByKey会按照key对所有分区中的数据进行分组（面向整个数据集，而非单独一个分区），其实现
+ *    的过程中对一个分区中数据分组后不能继续执行后序的操作，比如统计之类的计算。需要等待其他分区的数据全部到
+ *    达后，才能执行后续计算。
+ *       但是这个等待操作如果在内存中进行，等待时间过长，可能会引发OOM，所以这个等待的过程产生的数据应该被
+ *    存储到磁盘中。即shuffle过程中的数据是要落盘的，当数据准备完全后，会被重新加载到内存中进行后续的计算
+ *    任务。
+ *       有shuffle过程的算子，无法进行后续计算。因为需要等待数据重组，所以在shuffle前后会被分为两个Task来执行。
  *
  * </pre>
  *
