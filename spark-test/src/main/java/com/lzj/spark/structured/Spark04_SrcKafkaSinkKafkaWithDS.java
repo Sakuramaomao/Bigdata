@@ -39,28 +39,21 @@ public class Spark04_SrcKafkaSinkKafkaWithDS {
                 .option("subscribe", "streaming-test")
                 // 指定读取位置。earliest、assign，latest
                 .option("startingOffsets", "latest")
+                // 不检查
                 .option("failOnDataLoss", "false")
                 .load();
 
-        System.out.println("===========kafkaSource schema=======");
-        kafkaSource.printSchema();
-        System.out.println("===========kafkaSource schema=======");
-
         // 只选取消息中的value。
-        Dataset<String> valueSource = kafkaSource.select(col("value")).as(Encoders.STRING());
-        System.out.println("===========valueSource schema=======");
-        valueSource.printSchema();
-        System.out.println("===========valueSource schema=======");
+        Dataset<String> valueSource = kafkaSource.select(col("value").as("value")).as(Encoders.STRING());
 
         // schema info
         LinkedList<StructField> fields = new LinkedList<>();
         fields.add(DataTypes.createStructField("name", DataTypes.StringType, false));
-        //fields.add(DataTypes.createStructField("time", DataTypes.LongType, false));
         fields.add(DataTypes.createStructField("age", DataTypes.IntegerType, false));
         StructType schema = DataTypes.createStructType(fields);
 
         // value处理
-        Dataset<String> ds = valueSource.mapPartitions(
+        Dataset<Row> ds = valueSource.mapPartitions(
                 new MapPartitionsFunction<String, String>() {
                     @Override
                     public Iterator<String> call(Iterator<String> iter) throws Exception {
@@ -78,26 +71,17 @@ public class Spark04_SrcKafkaSinkKafkaWithDS {
                         return result.iterator();
                     }
                 }
-                , Encoders.STRING());
-
-        System.out.println("===========ds schema=======");
-        // {"name": "lzj2", "age": 29}
-        ds.printSchema();
-        System.out.println("===========ds schema=======");
-
-        // FIXME 这里value会找不到。
-        Dataset<Row> typedDS = ds.select(from_json(new Column("value"), schema).as("info"))
+                , Encoders.STRING())
+                .select(from_json(col("value"), schema).as("info"))
                 .select(col("info.*"));
 
-
-        System.out.println("===========typedDS schema=======");
-        typedDS.printSchema();
-        System.out.println("===========typedDS schema=======");
-
+        // FIXME 这里value会找不到。
+        //Dataset<Row> typedDS = ds.select(from_json(col("value"), schema).as("info"))
+        //        .select(col("info.*"));
 
         // 其他的业务逻辑操作
-        typedDS.createOrReplaceTempView("test");
-        Dataset<Row> sqlDS = spark.sql("select name from test");
+        ds.createOrReplaceTempView("test");
+        Dataset<Row> sqlDS = spark.sql("select name as value from test");
 
         // 写回kafka
         sqlDS.writeStream()
@@ -108,5 +92,8 @@ public class Spark04_SrcKafkaSinkKafkaWithDS {
                 .option("topic", "streaming-test-output")
                 .start()
                 .awaitTermination();
+
+        // 上面阻塞了，运行不到这一行
+        sqlDS.show();
     }
 }
