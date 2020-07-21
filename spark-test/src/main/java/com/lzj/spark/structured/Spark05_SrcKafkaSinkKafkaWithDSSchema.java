@@ -22,7 +22,7 @@ import static org.apache.spark.sql.functions.from_json;
  * @Author zj.li
  * @Date 2020/7/21 18:35
  **/
-public class Test {
+public class Spark05_SrcKafkaSinkKafkaWithDSSchema {
     public static void main(String[] args) {
         // 准备环境
         SparkSession spark = SparkSession.builder()
