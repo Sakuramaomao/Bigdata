@@ -60,7 +60,8 @@ public class Spark01_Window {
                     }
                 }, Encoders.tuple(Encoders.STRING(), Encoders.TIMESTAMP()))
                 .toDF("word", "timestamp")
-                // 根据event-time开窗，根据value进行分组聚合统计
+                // { word timestamp}
+                // 小练习：根据event-time开窗，根据value进行分组聚合统计
                 .groupBy(
                         window(col("timestamp"), "4 minutes","2 minutes"),
                         col("word")
