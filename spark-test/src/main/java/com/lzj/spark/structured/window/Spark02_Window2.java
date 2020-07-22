@@ -18,7 +18,7 @@ import java.util.Iterator;
  * @Author zj.li
  * @Date 2020/7/22 17:29
  **/
-public class Window2 {
+public class Spark02_Window2 {
     public static void main(String[] args) throws StreamingQueryException {
         // 准备环境
         SparkSession spark = SparkSession.builder()

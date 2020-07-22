@@ -1,4 +1,4 @@
-package com.lzj.spark.structured;
+package com.lzj.spark.structured.base;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.spark.api.java.function.MapPartitionsFunction;
@@ -6,6 +6,7 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
+import org.apache.spark.sql.streaming.OutputMode;
 import org.apache.spark.sql.streaming.StreamingQueryException;
 
 import java.util.Iterator;
@@ -13,13 +14,13 @@ import java.util.LinkedList;
 
 /**
  * <pre>
- *   接收kafka数据，写入本地文件。
+ *   接收kafka数据，写入kafka。
  * </pre>
  *
  * @Author zj.li
  * @Date 2020/7/21 8:49
  **/
-public class Spark02_SrcKafkaSinkFile {
+public class Spark03_SrcKafkaSinkKafka {
     public static void main(String[] args) throws StreamingQueryException {
         // 准备环境
         SparkSession spark = SparkSession.builder()
@@ -38,21 +39,10 @@ public class Spark02_SrcKafkaSinkFile {
                 .option("startingOffsets", "earliest")
                 .load();
 
-        /**
-         * schema
-         *  -> key: 消息key
-         *  -> value: 消息value
-         *  -> topic: 本条消息所在topic。因为整合的时候一个dataset可以对接多个topic。
-         *  -> partition: 本条消息所在分区号。
-         *  -> offset: 本条消息在分区中的偏移量。
-         *  -> timestamp: 本条消息进入kafka的时间戳。
-         *  -> timestampType: 时间戳类型。
-         */
-        //kafkaSource.printSchema();
-
+        // 只选取消息中的value。
         Dataset<Row> valueSource = kafkaSource.select("value");
 
-        // 处理数据
+        // value处理
         Dataset<String> ds = valueSource.as(Encoders.STRING()).mapPartitions(
                 new MapPartitionsFunction<String, String>() {
                     @Override
@@ -73,25 +63,19 @@ public class Spark02_SrcKafkaSinkFile {
                 }
                 , Encoders.STRING());
 
-        // 1、一条消息的格式  1::lzj1::test1
-        // 2、将其当做CSV来处理 Dataset<String> => Dataset(id, name, info)
-        //Dataset<Row> sourceRow = source.map((Function1<String, Row>) item -> {
-        //    String[] attrs = item.split("::");
-        //    return RowFactory.create(attrs[0], attrs[1], attrs[2]);
-        //}, Encoders.bean(Row.class));
-        //
-        //Dataset<Row> result = sourceRow.toDF("id", "name", "age");
-
+        // 其他的业务逻辑操作
         ds.createOrReplaceTempView("test");
+        // 这里未定义schema，所以不能使用sparkSql
         Dataset<Row> sql = spark.sql("select * from test");
 
-        // 落地HDFS
+        // 写回kafka
         sql.writeStream()
-                .format("parquet")
-                .option("path", "output")
+                .format("kafka")
+                .outputMode(OutputMode.Append())
                 .option("checkpointLocation", "checkpoint")
+                .option("kafka.bootstrap.servers", "192.168.5.134:9092")
+                .option("topic", "streaming_test_output")
                 .start()
                 .awaitTermination();
-
     }
 }

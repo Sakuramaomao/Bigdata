@@ -1,4 +1,4 @@
-package com.lzj.spark.structured;
+package com.lzj.spark.structured.base;
 
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.Column;
