@@ -23,6 +23,8 @@ import static org.apache.spark.sql.functions.window;
  *      的操作。
  *          在这种情况下，开发者不必考虑Spark接收数据的时间是否和事件发生的顺序一致。基于event-time
  *      的操作会大大减少开发者的工作量。
+ *          在这种窗口机制下，无论事件何时到达，以怎样的顺序到达，Structured streaming总会根据事件
+ *      时间生成对应的的若干个时间窗口，然后按照指定的规则聚合。
  *
  * </pre>
  *

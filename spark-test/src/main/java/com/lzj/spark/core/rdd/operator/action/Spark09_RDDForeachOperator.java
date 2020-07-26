@@ -26,7 +26,7 @@ import java.util.Arrays;
  * @Author Sakura
  * @Date 2020/7/19 23:04
  */
-public class Sparkn_RDDForeachOperator {
+public class Spark09_RDDForeachOperator {
     public static void main(String[] args) {
         /*
           创建配置对象。

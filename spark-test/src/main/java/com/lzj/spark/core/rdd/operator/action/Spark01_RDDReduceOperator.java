@@ -19,7 +19,7 @@ import java.util.Arrays;
  *
  *     和reduceByKey的区别？
  *        reduce是行动算子，会聚集RDD中所有数据。其返回结果是一个值。而reduceByKey是转换算子，
- *     根据key进行分区并分区内预聚合，分区间再聚合。其返回结果还是一个RDD。
+ *     根据key进行分区并在分区内预聚合，分区间再聚合。其返回结果还是一个RDD。
  * </pre>
  *
  * @Author Sakura
