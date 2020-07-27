@@ -18,6 +18,8 @@ import java.util.Arrays;
  *     分区器：
  *      （1）HashPartitioner   根据key的hash值分区。（这里没有用跟map一样的位运算，因为分区数是手动填写的，不能保证是2的n次幂。）
  *      （2）RangePartitioner  直接划分范围进行分区。比如0-100到零号分区，101-200到一号分区。
+ *          将一定范围内的数据映射到一个分区中，尽量保证每个分区数据均匀，而且分区间有序。所以需要保证传入的数据可以被排序，但是这个
+ *       不能要求别人的数据可以被排序。所以Range的用处不是很大。
  *     默认分区器是HashPartitioner。RangePartitioner要求key必须是可以排序的，这个在sortBy算子中被默认使用了，平时不会去使用。
  *
  * </pre>
