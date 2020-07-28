@@ -6,6 +6,7 @@ import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.streaming.OutputMode;
 import org.apache.spark.sql.streaming.StreamingQueryException;
+import org.apache.spark.sql.streaming.Trigger;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -43,7 +44,7 @@ public class Spark02_KafkaSource {
                 .appName("kafka-source-streaming")
                 .getOrCreate();
         JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
-        sc.setLogLevel("warn");
+        sc.setLogLevel("WARN");
 
         // 小练习1：直接打印input table，了解DS的schema结构。
         //spark.readStream()
@@ -60,8 +61,8 @@ public class Spark02_KafkaSource {
         // 小练习2：从kafka读取单词的wordCounts。
         spark.readStream()
                 .format("kafka")
-                .option("kafka.bootstrap.servers", "192.168.2.10:9092")
-                .option("subscribe", "streaming-test-in")
+                .option("kafka.bootstrap.servers", "192.168.5.132:9092")
+                .option("subscribe", "streamingtest")
                 .load()
                 .selectExpr("cast(value as string) as value")
                 .as(Encoders.STRING())
@@ -75,6 +76,7 @@ public class Spark02_KafkaSource {
                 .groupBy(col("value"))
                 .count()
                 .writeStream()
+                .trigger(Trigger.ProcessingTime(100))
                 .format("console")
                 // 因为词频统计中使用到了聚合操作，所以这里使用complete模式。
                 .outputMode(OutputMode.Complete())
