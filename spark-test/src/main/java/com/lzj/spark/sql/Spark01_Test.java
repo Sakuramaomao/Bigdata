@@ -25,6 +25,7 @@ import java.util.List;
  *              Java中没有将RDD直接转化为Dataset的API，Scala中有。
  *           在Java中需要借助sparkSession中的createDataFrame方法来创造Dataset。
  *           在使用之前需要自己手动构建Schema。
+ *              从Dataset转化为RDD，只需要调用toJavaRDD方法即可获取RDD。
  * </pre>
  *
  * @Author zj.li
