@@ -18,7 +18,14 @@ import java.util.List;
 
 /**
  * <pre>
- *
+ *      新环境SparkSession
+ *          1、read
+ *              可以读取Json、Txt、Csv等类型的文件。
+ *          2、RDD和Dataset之间的转换
+ *              Java中没有将RDD直接转化为Dataset的API，Scala中有。
+ *           在Java中需要借助sparkSession中的createDataFrame方法来创造Dataset。
+ *           在使用之前需要自己手动构建Schema。
+ *              从Dataset转化为RDD，只需要调用toJavaRDD方法即可获取RDD。
  * </pre>
  *
  * @Author zj.li
@@ -43,6 +50,7 @@ public class Spark01_Test {
 
         // RDD <=> DataSet
         // 需要自己构建schema
+        // 从这里可以看出RDD只有数据，没有结构和类型。
         JavaRDD<String> rdd = sc.parallelize(Arrays.asList(
                 "1, lzj, 11",
                 "2, lzj2, 22",
@@ -61,16 +69,12 @@ public class Spark01_Test {
             return RowFactory.create(attr[0], attr[1], attr[2]);
         });
 
+        // 将RDD转化为Dataset。
         Dataset<Row> ds = spark.createDataFrame(rowRdd, schema);
 
-        Dataset<String> stringDataset = ds.toJSON();
-
-        stringDataset.foreach(string -> {
-            System.out.println(string);
-        });
 
         //stringDataset.show();
-        //ds.show();
+        ds.show();
 
         spark.stop();
     }
