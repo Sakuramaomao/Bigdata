@@ -59,7 +59,7 @@ public class Spark04_RDDInFIlePartition {
           创建配置对象。
          */
         SparkConf sparkConf = new SparkConf();
-        sparkConf.setMaster("local");
+        sparkConf.setMaster("local[*]");
         sparkConf.setAppName("file-rdd");
 
         /*
@@ -67,7 +67,7 @@ public class Spark04_RDDInFIlePartition {
          */
         JavaSparkContext sc = new JavaSparkContext(sparkConf);
 
-        JavaRDD<String> rdd = sc.textFile("input/w.txt", 4);
+        JavaRDD<String> rdd = sc.textFile("input/w.txt");
 
         rdd.saveAsTextFile("output");
     }

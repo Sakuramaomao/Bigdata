@@ -3,6 +3,7 @@ package com.lzj.spark.structured.source;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.streaming.OutputMode;
+import org.apache.spark.sql.streaming.StreamingQuery;
 import org.apache.spark.sql.streaming.StreamingQueryException;
 
 /**
@@ -31,7 +32,7 @@ public class Spark04_RateSource {
         JavaSparkContext sc = new JavaSparkContext(spark.sparkContext());
         sc.setLogLevel("warn");
 
-        spark.readStream()
+        StreamingQuery query = spark.readStream()
                 .format("rate")
                 .load()
                 .writeStream()
@@ -39,7 +40,8 @@ public class Spark04_RateSource {
                 .outputMode(OutputMode.Update())
                 // 显示时间。默认折叠不显示。
                 .option("truncate", false)
-                .start()
-                .awaitTermination();
+                .start();
+        query.awaitTermination();
+
     }
 }
