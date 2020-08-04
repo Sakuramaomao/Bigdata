@@ -35,4 +35,10 @@ public class AppTest
         Integer hello = map1.merge("hello", 1, Integer::sum);
         System.out.println(hello);
     }
+
+    @Test
+    public void charTest() {
+        char ch = '我';
+        String str = "l";
+    }
 }

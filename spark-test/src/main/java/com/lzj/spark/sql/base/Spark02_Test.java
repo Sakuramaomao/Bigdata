@@ -1,5 +1,6 @@
-package com.lzj.spark.sql;
+package com.lzj.spark.sql.base;
 
+import com.lzj.spark.sql.base.sampleclass.User;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -20,14 +21,16 @@ import java.util.List;
  *              可以读取Json、Txt、Csv等类型的文件。
  *          2、RDD和DataFrame之间的转换
  *              DataFrame是一种特殊的Dataset。type DataFrame = Dataset[Row]
- *
- *              从DataFrame转化为RDD，只需要调用toJavaRDD方法即可获取RDD。
+ *             从DataFrame转化为RDD，只需要调用toJavaRDD方法即可获取RDD。
+ *          3、RDD和Dataset之间的转换
+ *              需要样例类对象。{@link User}
+ *              需要将JavaRDD向上转型为RDD。
  * </pre>
  *
  * @Author zj.li
  * @Date 2020/7/21 14:35
  **/
-public class Spark01_Test {
+public class Spark02_Test {
     public static void main(String[] args) {
         // 创建环境
         SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("sparkSQL");
@@ -60,7 +63,7 @@ public class Spark01_Test {
         fields.add(DataTypes.createStructField("age", DataTypes.StringType, false));
         StructType schema = DataTypes.createStructType(fields);
 
-        //-----------------------------------------------------
+        //-----------------------RDD <=> DataFrame--------------------
         JavaRDD<Row> rdd1 = rdd.map((Function<String, Row>) v1 -> {
             String[] attr = v1.split(",");
             return RowFactory.create(attr[0], attr[1], attr[2]);
@@ -73,25 +76,28 @@ public class Spark01_Test {
         // 将DataFrame转化为RDD
         JavaRDD<Row> javaRDD = df.toJavaRDD();
 
-        //-----------------------------------------------------
+        //------------------------RDD <=> Dataset----------------------
         JavaRDD<User> rdd2 = rdd.map((Function<String, User>) str -> {
-            String[] attr = str.split(",");
+            String[] attr = str.split(", ");
             User u = new User();
-            u.id = Integer.parseInt(attr[0]);
-            u.name = attr[1];
-            u.age = Integer.parseInt(attr[2]);
+            u.setId(Integer.parseInt(attr[0]));
+            u.setName(attr[1]);
+            u.setAge(Integer.parseInt(attr[2]));
             return u;
         });
-        // 将RDD转化为Dataset。需要样例类。
-        //spark.createDataset(rdd2, Encoders.bean(User.class));
-        // 将Dataset转化为RDD。
 
+        // 将RDD转化为Dataset。需要样例类。注意入参需要将JavaRdd转化为Rdd。
+        Dataset<User> ds = spark.createDataset(rdd2.rdd(), Encoders.bean(User.class));
+        ds.show();
+
+        // 将Dataset转化为RDD。
+        JavaRDD<User> javaRDD1 = ds.toJavaRDD();
+        //--------------------DataFrame <=> Dataset--------------------
+        // DataFrame和Dataset之间的转换
+        Dataset<User> ds2 = df.as(Encoders.bean(User.class));
+        Dataset<Row> df2 = ds.toDF();
+
+        // 释放对象
         spark.stop();
     }
-}
-
-class User {
-    int id;
-    String name;
-    int age;
 }

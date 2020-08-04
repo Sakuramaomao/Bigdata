@@ -1,4 +1,4 @@
-package com.lzj.spark.sql;
+package com.lzj.spark.sql.base;
 
 /**
  * <pre>
