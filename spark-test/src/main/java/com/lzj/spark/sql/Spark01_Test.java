@@ -4,10 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
-import org.apache.spark.sql.Dataset;
-import org.apache.spark.sql.Row;
-import org.apache.spark.sql.RowFactory;
-import org.apache.spark.sql.SparkSession;
+import org.apache.spark.sql.*;
 import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
@@ -21,11 +18,10 @@ import java.util.List;
  *      新环境SparkSession
  *          1、read
  *              可以读取Json、Txt、Csv等类型的文件。
- *          2、RDD和Dataset之间的转换
- *              Java中没有将RDD直接转化为Dataset的API，Scala中有。
- *           在Java中需要借助sparkSession中的createDataFrame方法来创造Dataset。
- *           在使用之前需要自己手动构建Schema。
- *              从Dataset转化为RDD，只需要调用toJavaRDD方法即可获取RDD。
+ *          2、RDD和DataFrame之间的转换
+ *              DataFrame是一种特殊的Dataset。type DataFrame = Dataset[Row]
+ *
+ *              从DataFrame转化为RDD，只需要调用toJavaRDD方法即可获取RDD。
  * </pre>
  *
  * @Author zj.li
@@ -64,18 +60,38 @@ public class Spark01_Test {
         fields.add(DataTypes.createStructField("age", DataTypes.StringType, false));
         StructType schema = DataTypes.createStructType(fields);
 
-        JavaRDD<Row> rowRdd = rdd.map((Function<String, Row>) v1 -> {
+        //-----------------------------------------------------
+        JavaRDD<Row> rdd1 = rdd.map((Function<String, Row>) v1 -> {
             String[] attr = v1.split(",");
             return RowFactory.create(attr[0], attr[1], attr[2]);
         });
+        // 将RDD转化为DataFrame。
+        Dataset<Row> df = spark.createDataFrame(rdd1, schema);
 
-        // 将RDD转化为Dataset。
-        Dataset<Row> ds = spark.createDataFrame(rowRdd, schema);
+        df.show();
 
+        // 将DataFrame转化为RDD
+        JavaRDD<Row> javaRDD = df.toJavaRDD();
 
-        //stringDataset.show();
-        ds.show();
+        //-----------------------------------------------------
+        JavaRDD<User> rdd2 = rdd.map((Function<String, User>) str -> {
+            String[] attr = str.split(",");
+            User u = new User();
+            u.id = Integer.parseInt(attr[0]);
+            u.name = attr[1];
+            u.age = Integer.parseInt(attr[2]);
+            return u;
+        });
+        // 将RDD转化为Dataset。需要样例类。
+        //spark.createDataset(rdd2, Encoders.bean(User.class));
+        // 将Dataset转化为RDD。
 
         spark.stop();
     }
+}
+
+class User {
+    int id;
+    String name;
+    int age;
 }

@@ -7,16 +7,13 @@ import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.streaming.OutputMode;
-import org.apache.spark.sql.streaming.StreamingQuery;
 import org.apache.spark.sql.streaming.StreamingQueryException;
-import org.apache.spark.sql.streaming.StreamingQueryManager;
 import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
 
 import static org.apache.spark.sql.functions.col;
 import static org.apache.spark.sql.functions.from_json;
@@ -122,31 +119,13 @@ public class Spark04_SrcKafkaSinkKafkaWithStateless {
         // 判断DS是否为streaming DS的方法
         //System.out.println(jsonDS.isStreaming());
 
-        StreamingQuery query = jsonDS.writeStream()
+        jsonDS.writeStream()
                 .format("console")
                 .outputMode(OutputMode.Update())
                 .option("checkpointLocation", "checkpoint")
                 .option("truncate", false)
-                .start();
-
-        new Thread(() -> {
-            try {
-                System.out.println(query.id());
-                TimeUnit.SECONDS.sleep(20);
-                StreamingQueryManager queryManager = spark.streams();
-                StreamingQuery query1 = queryManager.get(query.id());
-                query1.stop();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
-
-        System.out.println(query.isActive());
-
-        query.awaitTermination();
-
-        //StreamingQueryManager streams = spark.streams();
-        //StreamingQuery[] active = streams.active();
+                .start()
+                .awaitTermination();
 
         // 写回kafka
         //jsonDS.writeStream()

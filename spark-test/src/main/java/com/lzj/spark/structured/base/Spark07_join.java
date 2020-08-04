@@ -21,7 +21,7 @@ import static org.apache.spark.sql.functions.from_json;
 
 /**
  * <pre>
- *
+ *    实时和离线数据的join。
  * </pre>
  *
  * @Author zj.li
@@ -48,8 +48,8 @@ public class Spark07_join {
         // 读取Kafka数据（要求Kafka中消息为K-V类型）
         Dataset<Row> kafkaSource = spark.readStream()
                 .format("kafka")
-                .option("kafka.bootstrap.servers", "192.168.5.134:9092")
-                .option("subscribe", "streaming-test")
+                .option("kafka.bootstrap.servers", "192.168.5.132:9092")
+                .option("subscribe", "streamingtest")
                 // 指定读取位置。earliest、assign，latest
                 .option("startingOffsets", "latest")
                 // 不检查
@@ -66,7 +66,7 @@ public class Spark07_join {
         StructType schema = DataTypes.createStructType(fields);
 
         // value处理
-        Dataset<Row> ds = valueSource.mapPartitions(
+        Dataset<Row> dynamicDS = valueSource.mapPartitions(
                 new MapPartitionsFunction<String, String>() {
                     @Override
                     public Iterator<String> call(Iterator<String> iter) throws Exception {
@@ -88,15 +88,20 @@ public class Spark07_join {
                 .select(from_json(col("value"), schema).as("info"))
                 .select(col("info.*"));
 
-        // 其他的业务逻辑操作, 可以使用sparkSql来返回其他streaming ds
-        ds.createOrReplaceTempView("test");
-        Dataset<Row> result = spark.sql("select * from test inner join student where test.name = student.name");
+        // 其他的业务逻辑操作, 可以使用sparkSql来返回其他streaming dynamicDS
+        // src
+        dynamicDS.createOrReplaceTempView("test");
+        // mapping
+        Dataset<Row> result = spark.sql("select student.* from test inner join student where test.name = student.name");
+        result.createOrReplaceTempView("result");
+        // sink
+        Dataset<Row> sinkDS = spark.sql("select * from result");
 
         // 将每行记录转化为json字符串，准备写回kafka
         //Dataset<String> jsonDS = result.toJSON();
 
         // 写到console
-        result.writeStream()
+        sinkDS.writeStream()
                 .format("console")
                 .outputMode(OutputMode.Update())
                 //.outputMode(OutputMode.Append())
