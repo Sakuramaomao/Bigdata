@@ -1,6 +1,6 @@
 package com.lzj.spark.sql.base;
 
-import com.lzj.spark.sql.base.sampleclass.User;
+import com.lzj.spark.sql.sampleclass.User;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;

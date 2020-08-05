@@ -1,4 +1,4 @@
-package com.lzj.spark.sql.base.sampleclass;
+package com.lzj.spark.sql.sampleclass;
 
 import java.io.Serializable;
 
