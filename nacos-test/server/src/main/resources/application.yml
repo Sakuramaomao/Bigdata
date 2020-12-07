@@ -1,22 +1,25 @@
-# \u5E94\u7528\u540D\u79F0
 spring:
   application:
     name: server
-# \u5E94\u7528\u670D\u52A1 WEB \u8BBF\u95EE\u7AEF\u53E3
+  main:
+    allow-bean-definition-overriding: true
 server:
   port: 8080
 
-
 dubbo:
   registry:
-    address: nacos://localhost:8848
+    address: nacos://localhost:8849
+    check: true
   scan:
-    base-packages: com.example.service
+    base-packages: com.example
   protocol:
     name: dubbo
-    port: 20881
+    port: -1
+    dispatcher: message
   application:
-    name: server-provider
     qos-enable: false
-  consumer:
-    check: false
+    name: server-provider
+  provider:
+    threadpool: cached
+#  consumer:
+#    check: false

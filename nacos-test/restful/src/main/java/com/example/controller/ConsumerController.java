@@ -1,7 +1,7 @@
 package com.example.controller;
 
 import com.lzj.api.TestInterface;
-import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConsumerController {
     // 注入基于Dubbo协议的代理类对象。
-    @DubboReference
+    @Reference
     TestInterface testInterface;
 
     @GetMapping("/service")

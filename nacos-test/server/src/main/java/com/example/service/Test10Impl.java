@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.lzj.api.TestInterface;
+import com.lzj.api.Test10Interface;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
  */
 @Service
 @Component
-public class TestImpl implements TestInterface {
+public class Test10Impl implements Test10Interface {
     @Override
     public String test() {
-        return "server-test-impl";
+        return "server-test2-impl";
     }
 }
