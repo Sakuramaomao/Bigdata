@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: server
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8849
+        namespace: 0182ee5a-835a-40ef-bd46-c8c4a2c9da74
+        cluster-name: DEFAULT
+      config:
+        server-addr: 127.0.0.1:8849
+        file-extension: yaml
+        namespace: 0182ee5a-835a-40ef-bd46-c8c4a2c9da74
+        group: LZJ_DEV_GROUP
+dubbo:
+  cloud:
+    subscribed-services: ""
+  scan:
+    base-packages: com.example.service
+  protocol:
+    name: dubbo
+    port: 20881
+  registry:
+    address: nacos://127.0.0.1:8849
+  application:
+    qos-enable: false
+  consumer:
+    check: false
+  provider:
+    threadpool: cached
