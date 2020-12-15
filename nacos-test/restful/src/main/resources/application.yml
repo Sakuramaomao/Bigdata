@@ -7,12 +7,12 @@ server:
 
 dubbo:
   registry:
-    address: nacos://localhost:8849
+    address: nacos://localhost:8848
   scan:
     base-packages: com.example.controller
   protocol:
     name: dubbo
-    port: 20881
+    port: -1
   application:
     name: restful-consumer
     qos-enable: false
