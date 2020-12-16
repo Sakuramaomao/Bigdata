@@ -3,12 +3,10 @@ spring:
     name: server
   main:
     allow-bean-definition-overriding: true
-server:
-  port: 8080
 
 dubbo:
   registry:
-    address: nacos://localhost:8849
+    address: nacos://localhost:8848
     check: true
   scan:
     base-packages: com.example
