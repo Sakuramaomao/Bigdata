@@ -42,7 +42,7 @@ public class Spark02_WordCountUpgrade {
           业务逻辑
          */
         // 1、读取文件
-        JavaRDD<String> fileRdd = sc.textFile("input");
+        JavaRDD<String> fileRdd = sc.textFile("input/Hello1.txt");
         // 2、扁平化。或者说是切割
         JavaRDD<String> flatMapRdd = fileRdd.flatMap(s -> {
             String[] split = s.split(" ");
