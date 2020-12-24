@@ -8,6 +8,7 @@ import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
 import scala.Tuple2;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,7 +26,7 @@ import java.util.List;
  * @Date 2020/7/11 17:06
  */
 public class Spark02_WordCountUpgrade {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 /*
           创建配置对象。
          */
@@ -64,5 +65,7 @@ public class Spark02_WordCountUpgrade {
         List<Tuple2<String, Integer>> wordCountResult = wordToCountRdd.collect();
 
         System.out.println(wordCountResult);
+
+        System.in.read();
     }
 }
