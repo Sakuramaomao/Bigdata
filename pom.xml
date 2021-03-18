@@ -15,6 +15,7 @@
         <module>kafka-test</module>
         <module>jvm-test</module>
         <module>nacos-test</module>
+        <module>ignite-test</module>
     </modules>
 
     <name>bigdata-test</name>
