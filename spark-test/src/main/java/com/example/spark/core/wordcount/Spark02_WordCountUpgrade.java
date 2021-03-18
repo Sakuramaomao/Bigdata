@@ -8,6 +8,7 @@ import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
 import scala.Tuple2;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,7 +26,7 @@ import java.util.List;
  * @Date 2020/7/11 17:06
  */
 public class Spark02_WordCountUpgrade {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 /*
           创建配置对象。
          */
@@ -42,7 +43,7 @@ public class Spark02_WordCountUpgrade {
           业务逻辑
          */
         // 1、读取文件
-        JavaRDD<String> fileRdd = sc.textFile("input");
+        JavaRDD<String> fileRdd = sc.textFile("input/Hello1.txt");
         // 2、扁平化。或者说是切割
         JavaRDD<String> flatMapRdd = fileRdd.flatMap(s -> {
             String[] split = s.split(" ");
@@ -64,5 +65,7 @@ public class Spark02_WordCountUpgrade {
         List<Tuple2<String, Integer>> wordCountResult = wordToCountRdd.collect();
 
         System.out.println(wordCountResult);
+
+        System.in.read();
     }
 }

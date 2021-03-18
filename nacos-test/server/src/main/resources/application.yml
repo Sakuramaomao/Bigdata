@@ -6,7 +6,7 @@ spring:
 
 dubbo:
   registry:
-    address: nacos://localhost:8848
+    address: nacos://localhost:8849
     check: true
   scan:
     base-packages: com.example
