@@ -13,6 +13,12 @@ import org.apache.ignite.configuration.ClientConfiguration;
 import javax.cache.Cache;
 
 /**
+ * <pre>
+ *     编写ScanQuery，从IgniteCache中批量取出符合条件的缓存数据。
+ *
+ *     QueryCursor可以对返回的结果集进行迭代。使用完后一定要注意关闭！！！
+ * </pre>
+ *
  * @Author Sakura
  * @Date 2021/03/22 21:39
  */
@@ -35,6 +41,7 @@ public class ThinClientKV {
             cache.put(3, "3_lzj");
 
             // query是以页的方式返回。可以在query中设置页大小: query.setPageSize(1024);
+            // 从cache中批量取出符合条件的数据。
             ScanQuery<Integer, String> query = new ScanQuery<>((i, p) -> {
                 return p.startsWith("lzj");
             });
