@@ -26,5 +26,5 @@ package com.lzj.example.e_datamodel;
  * @Author zj.li
  * @Date 2021/3/24 19:49
  **/
-public class f_ReplicatedAndPartitioned {
+public class e_ReplicatedAndPartitioned {
 }
