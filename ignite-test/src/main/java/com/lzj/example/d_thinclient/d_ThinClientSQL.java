@@ -17,7 +17,7 @@ import java.util.List;
  * @Author Sakura
  * @Date 2021/03/23 22:13
  */
-public class ThinClientSQL {
+public class d_ThinClientSQL {
     public static void main(String[] args) {
         ClientConfiguration cfg = new ClientConfiguration();
         cfg.setAddresses("127.0.0.1:10800");

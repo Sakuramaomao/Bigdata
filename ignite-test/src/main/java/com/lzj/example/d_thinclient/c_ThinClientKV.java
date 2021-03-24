@@ -22,7 +22,7 @@ import javax.cache.Cache;
  * @Author Sakura
  * @Date 2021/03/22 21:39
  */
-public class ThinClientKV {
+public class c_ThinClientKV {
     public static void main(String[] args) {
         ClientConfiguration cfg = new ClientConfiguration();
         cfg.setAddresses("localhost:10800");

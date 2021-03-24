@@ -23,7 +23,7 @@ import java.util.Collection;
  * @Author Sakura
  * @Date 2021/03/23 22:24
  */
-public class ThinClientClusterAPI {
+public class f_ThinClientClusterAPI {
     public static void main(String[] args) {
         ClientConfiguration cfg = new ClientConfiguration();
         cfg.setAddresses("127.0.0.1:10800");

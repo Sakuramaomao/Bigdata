@@ -13,7 +13,7 @@ import org.apache.ignite.configuration.IgniteConfiguration;
  * @Author Sakura
  * @Date 2021/03/22 20:44
  */
-public class ThinClientTest {
+public class a_ThinClientTest {
     public static void main(String[] args) {
         // 如果当前应用是集群模式，就可以配置ClientConnectorConfiguration控制暴露给thinClient的端口了。
         ClientConnectorConfiguration cfg = new ClientConnectorConfiguration();

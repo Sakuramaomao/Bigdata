@@ -13,7 +13,7 @@ import org.apache.ignite.configuration.ClientConfiguration;
  * @Author Sakura
  * @Date 2021/03/22 21:18
  */
-public class ThinClientTest2 {
+public class b_ThinClientTest2 {
     public static void main(String[] args) {
         ClientConfiguration cfg = new ClientConfiguration();
         // 可以填写多个。瘦客户端在启动时会自动选择一个连接。如果连接的节点挂掉了，就会选择地址列表中的一个其他节点连接。

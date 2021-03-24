@@ -20,7 +20,7 @@ import org.apache.ignite.transactions.TransactionIsolation;
  * @Author Sakura
  * @Date 2021/03/23 21:18
  */
-public class ThinClientTX {
+public class g_ThinClientTX {
     public static void main(String[] args) {
         ClientConfiguration cfg = new ClientConfiguration();
         cfg.setAddresses("localhost:10800");

@@ -20,7 +20,7 @@ import org.apache.ignite.configuration.ClientConfiguration;
  * @Author Sakura
  * @Date 2021/03/23 21:59
  */
-public class ThinClientBinaryObj {
+public class e_ThinClientBinaryObj {
     public static void main(String[] args) {
         ClientConfiguration cfg = new ClientConfiguration();
         cfg.setAddresses("localhost:10800");
