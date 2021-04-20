@@ -13,7 +13,8 @@ import java.util.List;
  */
 public class DistributeServer {
     private static ZooKeeper zkClient;
-    private static String connectStr = "master:2181,slave1:2181,slave2:2181";
+    //private static String connectStr = "master:2181,slave1:2181,slave2:2181";
+    private static String connectStr = "slave1:2181";
     private static int sessionTimeOut = 2000;
 
     public static void main(String[] args) throws Exception {
